@@ -1,0 +1,44 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Patient {
+  id       String    @id @default(uuid())
+  name     String
+  request  String
+  name_Bed String    @unique
+  Bed      Bed?      @relation(fields: [name_Bed], references: [name])
+  Request  Request[]
+
+  @@map("patients")
+}
+
+model Bed {
+  id      String    @id @default(uuid())
+  name    String    @unique
+  Patient Patient[]
+
+  @@map("beds")
+}
+
+model Category {
+  id      String    @id @default(uuid())
+  name    String    @unique
+  Request Request[]
+
+  @@map("categories")
+}
+
+model Request {
+  id          String   @id @default(uuid())
+  name        String
+  id_Patient  String
+  id_Category String
+  Patient     Patient  @relation(fields: [id_Patient], references: [id])
+  Category    Category @relation(fields: [id_Category], references: [id])
+}
