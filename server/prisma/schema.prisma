@@ -8,12 +8,12 @@ datasource db {
 }
 
 model Patient {
-  id       String    @id @default(uuid())
-  name     String
-  request  String
-  name_Bed String    @unique
-  Bed      Bed?      @relation(fields: [name_Bed], references: [name])
-  Request  Request[]
+  id      String    @id @default(uuid())
+  name    String
+  request String
+  nameBed String    @unique
+  Bed     Bed?      @relation(fields: [nameBed], references: [name])
+  Request Request[]
 
   @@map("patients")
 }
@@ -35,10 +35,10 @@ model Category {
 }
 
 model Request {
-  id          String   @id @default(uuid())
-  name        String
-  id_Patient  String
-  id_Category String
-  Patient     Patient  @relation(fields: [id_Patient], references: [id])
-  Category    Category @relation(fields: [id_Category], references: [id])
+  id         String   @id @default(uuid())
+  name       String
+  idPatient  String
+  idCategory String
+  Patient    Patient  @relation(fields: [idPatient], references: [id])
+  Category   Category @relation(fields: [idCategory], references: [id])
 }
