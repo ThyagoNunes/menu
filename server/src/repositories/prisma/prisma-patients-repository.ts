@@ -21,24 +21,24 @@ export class PrismaPatientsRepository implements PatientsRepository {
     })
   }
 
-  async create({name, request, nameBed} : PatientsRepositoryCreateDate) {
+  async create({name, order, nameBed} : PatientsRepositoryCreateDate) {
     await prisma.patient.create({
       data: {
         name, 
-        request, 
+        order, 
         nameBed,
       }
     })
   }
 
-  async update({id, name, request, nameBed}: PatientsRepositoryUpdateData) {
+  async update({id, name, order, nameBed}: PatientsRepositoryUpdateData) {
     await prisma.patient.update({
       where: {
         id,
       },
       data: {
         name, 
-        request, 
+        order, 
         nameBed,
       }
     })

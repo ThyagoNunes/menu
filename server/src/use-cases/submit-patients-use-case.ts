@@ -2,7 +2,7 @@ import { PatientsRepository } from "../repositories/patients-repository"
 
 export interface SubmitPatientsUseCaseRequest {
   name: string, 
-  request: string, 
+  order: string, 
   nameBed: string,
 }
 
@@ -11,11 +11,13 @@ export class SubmitPatientsUseCase {
     private patientsRepository: PatientsRepository
   ) {}
 
-  async execute({name, request, nameBed}: SubmitPatientsUseCaseRequest) {
-    await this.patientsRepository.create({
+  async execute({name, order, nameBed}: SubmitPatientsUseCaseRequest) {
+    const patients = await this.patientsRepository.create({
       name, 
-      request, 
+      order, 
       nameBed,
     })
+
+    return patients
   }
 }

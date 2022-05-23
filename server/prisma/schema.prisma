@@ -8,37 +8,39 @@ datasource db {
 }
 
 model Patient {
-  id      String    @id @default(uuid())
+  id      String @id @default(uuid())
   name    String
-  request String
-  nameBed String    @unique
-  Bed     Bed?      @relation(fields: [nameBed], references: [name])
-  Request Request[]
+  nameBed String @unique
+  Bed     Bed[] // this foreign key contains Bed
+
 
   @@map("patients")
 }
 
 model Bed {
-  id      String    @id @default(uuid())
-  name    String    @unique
-  Patient Patient[]
+  id        String   @id @default(uuid())
+  name      String   @unique
+  patientId String?
+  Patient   Patient? @relation(fields: [patientId], references: [id]) // Relation table. Where attribute patientId has relation with this table
 
   @@map("beds")
 }
 
 model Category {
-  id      String    @id @default(uuid())
-  name    String    @unique
-  Request Request[]
+  id    String  @id @default(uuid())
+  name  String  @unique
+  Order Order[] // this foreign key contains order
 
   @@map("categories")
 }
 
-model Request {
-  id         String   @id @default(uuid())
+//  route from verified just orders
+model Order {
+  id         String    @id @default(uuid())
   name       String
-  idPatient  String
-  idCategory String
-  Patient    Patient  @relation(fields: [idPatient], references: [id])
-  Category   Category @relation(fields: [idCategory], references: [id])
+  patientId  String    @unique
+  categoryId String
+  Category   Category? @relation(fields: [categoryId], references: [id]) // Relation table. Where attribute categoryId has relation with this table
+
+  @@map("orders")
 }
