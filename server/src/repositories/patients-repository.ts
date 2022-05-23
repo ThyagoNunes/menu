@@ -7,6 +7,7 @@ export interface PatientsRepositoryShowData {
 }
 
 export interface PatientsRepositoryCreateDate {
+  id?: string, 
   name: string,
   order: string, 
   nameBed: string,

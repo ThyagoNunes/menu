@@ -21,9 +21,10 @@ export class PrismaPatientsRepository implements PatientsRepository {
     })
   }
 
-  async create({name, order, nameBed} : PatientsRepositoryCreateDate) {
+  async create({id, name, order, nameBed} : PatientsRepositoryCreateDate) {
     await prisma.patient.create({
       data: {
+        id,
         name, 
         order, 
         nameBed,
