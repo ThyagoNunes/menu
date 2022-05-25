@@ -11,7 +11,7 @@ export interface PatientsRepositoryCreateDate {
 }
 
 export interface PatientsRepositoryUpdateData {
-  id: string | undefined ,
+  id: string | undefined,
   name: string, 
   order: string, 
   nameBed: string,

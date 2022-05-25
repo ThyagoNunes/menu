@@ -47,7 +47,6 @@ export class PrismaPatientsRepository implements PatientsRepository {
         nameBed,
       },
     })
-    console.log(patientUpdated)
     return patientUpdated;
   }
 

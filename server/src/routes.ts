@@ -4,6 +4,7 @@ import { SubmitPatientsUseCase } from './use-cases/submit-patients-use-case';
 import { ListPatientsUseCase } from './use-cases/list-patients-use-case'
 import { ShowPatientUseCase } from './use-cases/show-patient-use-case';
 import { UpdatePatientUseCase } from './use-cases/update-patient-use-case';
+import { DeletePatientUseCase } from './use-cases/delete-patient-use-case';
 
 export const routes = Router();
 
@@ -52,7 +53,7 @@ routes.post('/pacientes', async (request, response) => {
   return response.status(201).json({data: patientCreate})
 })
 
-routes.put('pacientes/:id', async (request, response) => {
+routes.put('/pacientes/:id', async (request, response) => {
   const { id } = request.params;
   const { name, order, nameBed } = request.body;
 
@@ -67,9 +68,19 @@ routes.put('pacientes/:id', async (request, response) => {
     order, 
     nameBed
   })
-
-  console.log(patientUpdated)
-
   return response.status(200).json({data: patientUpdated})
+})
+
+routes.delete('/pacientes/:id', async (request, response) => {
+  const { id } = request.params;
+
+  const prismaPatientsRepository = new PrismaPatientsRepository();
+  const deletePatientUseCase = new DeletePatientUseCase(
+    prismaPatientsRepository,
+  )
+
+  await deletePatientUseCase.delete({id})
+
+  return response.sendStatus(204).send({deleted: 'ok'});
 
 })
