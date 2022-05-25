@@ -1,35 +1,75 @@
 import { Router } from 'express';
 import { PrismaPatientsRepository } from './repositories/prisma/prisma-patients-repository';
 import { SubmitPatientsUseCase } from './use-cases/submit-patients-use-case';
+import { ListPatientsUseCase } from './use-cases/list-patients-use-case'
+import { ShowPatientUseCase } from './use-cases/show-patient-use-case';
+import { UpdatePatientUseCase } from './use-cases/update-patient-use-case';
 
 export const routes = Router();
 
-routes.post("/pacientes", async (request, response) => {
+
+routes.get('/pacientes', async (request, response) => {
+
+  const prismaPatientsRepository = new PrismaPatientsRepository();
+  const listPatientsUseCase = new ListPatientsUseCase(
+    prismaPatientsRepository,
+  );
+
+  const patientsInfo = await listPatientsUseCase.index();
+
+  return response.status(200).send(patientsInfo)
+})
+
+routes.get('/pacientes/:id', async (request, response) => {
+  const { id } = request.params;
+
+  const prismaPatientsRepository = new PrismaPatientsRepository();
+  const showPatientUseCase = new ShowPatientUseCase(
+    prismaPatientsRepository,
+  )
+
+  const patientInfo = await showPatientUseCase.show({id})
+
+  return response.status(200).json({data: patientInfo});
   
-  const { id, name, order, nameBed } = request.body;
+})
+
+routes.post('/pacientes', async (request, response) => {
+  
+  const {name, order, nameBed } = request.body;
 
   const prismaPatientsRepository = new PrismaPatientsRepository()
   const submitPatientsUseCase = new SubmitPatientsUseCase(
     prismaPatientsRepository,
   );
 
-  await submitPatientsUseCase.execute({
-    id,
+  const patientCreate = await submitPatientsUseCase.execute({
     name,
     order,
     nameBed,
   })
 
-  return response.status(201).json({data: {id, name, order, nameBed}})
-});
+  return response.status(201).json({data: patientCreate})
+})
 
-routes.get('/pacientes', async (request, response) => {
+routes.put('pacientes/:id', async (request, response) => {
+  const { id } = request.params;
+  const { name, order, nameBed } = request.body;
+
   const prismaPatientsRepository = new PrismaPatientsRepository();
-  const submitPatientsUseCase = new SubmitPatientsUseCase(
+  const updatePatientUseCase = new UpdatePatientUseCase(
     prismaPatientsRepository,
-  );
+  )
+  
+  const patientUpdated = await updatePatientUseCase.update({
+    id,
+    name, 
+    order, 
+    nameBed
+  })
 
-  await submitPatientsUseCase.index();
+  console.log(patientUpdated)
 
-  return response.status(201).json({data: prismaPatientsRepository.index})
+  return response.status(200).json({data: patientUpdated})
+
 })

@@ -1,20 +1,17 @@
-export interface PatientsRepositoryIndex { 
-  
-}
+import { Patient } from "@prisma/client";
 
 export interface PatientsRepositoryShowData {
   id: string,
 }
 
 export interface PatientsRepositoryCreateDate {
-  id?: string, 
   name: string,
   order: string, 
   nameBed: string,
 }
 
 export interface PatientsRepositoryUpdateData {
-  id: string,
+  id: string | undefined ,
   name: string, 
   order: string, 
   nameBed: string,
@@ -25,9 +22,9 @@ export interface PatientsRepositoryDeleteData {
 }
 
 export interface PatientsRepository {
-  index: () => Promise<void>;
-  show: (data: PatientsRepositoryShowData) => Promise<void>;
-  create: (data: PatientsRepositoryCreateDate) => Promise<void> ;
-  update: (data: PatientsRepositoryUpdateData) => Promise<void>;
-  delete: (data: PatientsRepositoryDeleteData) => Promise<void>;
+  index: () => Promise<{} | null>;
+  show: (data: PatientsRepositoryShowData) => Promise<Patient | null>;
+  create: (data: PatientsRepositoryCreateDate) => Promise<Patient | null> ;
+  update: (data: PatientsRepositoryUpdateData) => Promise<Patient | null>;
+  delete: (data: PatientsRepositoryDeleteData) => Promise<Patient | null>;
 }

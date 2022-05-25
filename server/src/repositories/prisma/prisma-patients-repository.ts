@@ -9,31 +9,35 @@ import {
 
 export class PrismaPatientsRepository implements PatientsRepository {
   async index() {
-    await prisma.patient.findMany({
+    const patients = await prisma.patient.findMany({
     })
+    
+    return patients;
   }
 
   async show({id}: PatientsRepositoryShowData) {
-    await prisma.patient.findFirst({
+    const patient = await prisma.patient.findFirst({
       where: {
         id,
       }
     })
+    return patient;
   }
 
-  async create({id, name, order, nameBed} : PatientsRepositoryCreateDate) {
-    await prisma.patient.create({
+  async create({ name, order, nameBed} : PatientsRepositoryCreateDate) {
+    const patients = await prisma.patient.create({
       data: {
-        id,
         name, 
         order, 
         nameBed,
       }
     })
+    return patients
   }
 
   async update({id, name, order, nameBed}: PatientsRepositoryUpdateData) {
-    await prisma.patient.update({
+   
+    const patientUpdated = await prisma.patient.update({
       where: {
         id,
       },
@@ -41,15 +45,18 @@ export class PrismaPatientsRepository implements PatientsRepository {
         name, 
         order, 
         nameBed,
-      }
+      },
     })
+    console.log(patientUpdated)
+    return patientUpdated;
   }
 
   async delete({id}: PatientsRepositoryDeleteData) {
-    await prisma.patient.delete({
+    const patient = await prisma.patient.delete({
       where: {
         id,
       }
     })
+    return patient;
   }
 }
