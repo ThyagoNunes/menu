@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { PrismaPatientsRepository } from './repositories/prisma/prisma-patients-repository';
-import { SubmitPatientsUseCase } from './use-cases/submit-patients-use-case';
+import { CreatePatientsUseCase } from './use-cases/create-patients-use-case';
 import { ListPatientsUseCase } from './use-cases/list-patients-use-case'
 import { ShowPatientUseCase } from './use-cases/show-patient-use-case';
 import { UpdatePatientUseCase } from './use-cases/update-patient-use-case';
@@ -40,11 +40,11 @@ routes.post('/pacientes', async (request, response) => {
   const {name, order, nameBed } = request.body;
 
   const prismaPatientsRepository = new PrismaPatientsRepository()
-  const submitPatientsUseCase = new SubmitPatientsUseCase(
+  const createPatientsUseCase = new CreatePatientsUseCase(
     prismaPatientsRepository,
   );
 
-  const patientCreate = await submitPatientsUseCase.execute({
+  const patientCreate = await createPatientsUseCase.execute({
     name,
     order,
     nameBed,

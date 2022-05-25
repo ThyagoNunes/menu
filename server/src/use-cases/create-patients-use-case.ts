@@ -1,17 +1,17 @@
 import { PatientsRepository } from "../repositories/patients-repository"
 
-export interface SubmitPatientsUseCaseRequest {
+export interface CreatePatientsUseCaseRequest {
   name: string, 
   order: string, 
   nameBed: string,
 }
 
-export class SubmitPatientsUseCase {
+export class CreatePatientsUseCase {
   constructor(
     private patientsRepository: PatientsRepository
   ) {}
 
-  async execute({ name, order, nameBed}: SubmitPatientsUseCaseRequest) {
+  async execute({ name, order, nameBed}: CreatePatientsUseCaseRequest) {
     const patients = await this.patientsRepository.create({
       name, 
       order, 
