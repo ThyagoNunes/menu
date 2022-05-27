@@ -1,4 +1,4 @@
-import { PatientsRepository } from "../repositories/patients-repository";
+import { PatientsRepository } from "../../repositories/patients-repository";
 
 interface UpdatePatientUseCaseUpdate {
   id?: string,
