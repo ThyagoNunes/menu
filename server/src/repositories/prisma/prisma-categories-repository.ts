@@ -45,11 +45,11 @@ export class PrismaCategoriesRepository implements CategoriesRepository {
   };
 
   async delete({id}: CategoriesRepositoryDeleteData) {
-    const categoryDelete = await prisma.category.delete({
+    await prisma.category.delete({
       where: {
         id, 
       }
     })
-    return categoryDelete;
+    return 'Deleted'
   }
 }

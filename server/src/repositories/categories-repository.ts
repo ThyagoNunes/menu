@@ -23,5 +23,5 @@ export interface CategoriesRepository {
   show: (data: CategoriesRepositoryShowData) => Promise<Category | null >;
   create: (data: CategoriesRepositoryCreateData) => Promise<Category | null >;
   update: (data: CategoriesRepositoryUpdateData) => Promise<Category | null >;
-  delete: (data: CategoriesRepositoryDeleteData) => Promise<Category | null >;
+  delete: (data: CategoriesRepositoryDeleteData) => Promise<Category | string >;
 }

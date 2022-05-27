@@ -10,8 +10,8 @@ export class DeleteCategoryUseCase {
   ){}
 
   async delete({id}: DeleteCategoryUseCaseRequest) {
-    const categoryDelete = await this.categoriesRepository.delete({id});
+    await this.categoriesRepository.delete({id});
 
-    return categoryDelete;
+    return 'Deleted';
   }
 }

@@ -51,11 +51,11 @@ export class PrismaPatientsRepository implements PatientsRepository {
   }
 
   async delete({id}: PatientsRepositoryDeleteData) {
-    const patient = await prisma.patient.delete({
+    await prisma.patient.delete({
       where: {
         id,
       }
     })
-    return patient;
+    return 'Deleted';
   }
 }

@@ -2,6 +2,7 @@ import { Router } from 'express';
 
 import { PrismaPatientsRepository } from './repositories/prisma/prisma-patients-repository';
 import { PrismaCategoriesRepository } from './repositories/prisma/prisma-categories-repository';
+import { PrismaBedsRepository } from './repositories/prisma/prisma-beds-repository';
 
 import { ListPatientsUseCase } from './use-cases/patients/list-patients-use-case'
 import { ShowPatientUseCase } from './use-cases/patients/show-patient-use-case';
@@ -14,6 +15,12 @@ import { ShowCategoryUseCase } from './use-cases/categories/show-category-use-ca
 import { CreateCategoryUseCase } from './use-cases/categories/create-category-use-case';
 import { UpdateCategoryUseCase } from './use-cases/categories/update-category-use-case';
 import { DeleteCategoryUseCase } from './use-cases/categories/delete-category-use-case';
+
+import { ListBedsUseCase } from './use-cases/beds/list-beds-use-case';
+import { ShowBedUseCase } from './use-cases/beds/show-bed-use-case';
+import { CreateBedUseCase } from './use-cases/beds/create-bed-use-case';
+import { UpdateBedUseCase } from './use-cases/beds/update-bed-use-case';
+import { DeleteBedUseCase } from './use-cases/beds/delete-bed-use-case';
 
 export const routes = Router();
 
@@ -53,13 +60,13 @@ routes.post('/pacientes', async (request, response) => {
     prismaPatientsRepository,
   );
 
-  const patientCreate = await createPatientsUseCase.execute({
+  const patientNew = await createPatientsUseCase.execute({
     name,
     order,
     nameBed,
   })
 
-  return response.status(201).json({data: patientCreate})
+  return response.status(201).json({data: patientNew})
 });
 
 routes.put('/pacientes/:id', async (request, response) => {
@@ -90,7 +97,7 @@ routes.delete('/pacientes/:id', async (request, response) => {
 
   await deletePatientUseCase.delete({id})
 
-  return response.sendStatus(204).send({deleted: 'ok'});
+  return response.sendStatus(204).send({deleted: 'OK'});
 
 });
 
@@ -146,7 +153,7 @@ routes.put('/categorias/:id', async (request, response) => {
     name
   })
   
-  return response.status(200).json({categoryUpdate});
+  return response.status(200).json({data: categoryUpdate});
 })
 
 routes.delete('/categorias/:id', async (request, response) => {
@@ -158,7 +165,71 @@ routes.delete('/categorias/:id', async (request, response) => {
   );
 
   await deleteCategoryUseCase.delete({id})
-
   return response.status(204).json({deleted: 'OK'})
+  
+}) 
 
+
+routes.get('/leitos', async (request, response) => {
+    const prismaBedsRepository = new PrismaBedsRepository();
+    const listBedsUseCase = new ListBedsUseCase(
+      prismaBedsRepository,
+    )
+
+    const beds = await listBedsUseCase.index();
+
+    return response.status(200).json({data: beds})
+});
+
+routes.get('/leitos/:id', async (request, response) => {
+  const { id } = request.params;
+
+  const prismaBedsRepository = new PrismaBedsRepository();
+  const showBedUseCase = new ShowBedUseCase(
+    prismaBedsRepository,
+  );
+
+  const bed = await showBedUseCase.show({id});
+
+  return response.status(200).json({bed});
+})
+
+routes.post('/leitos', async (request, response) => {
+  const { name, patientId } = request.body;
+  
+  const prismaBedsRepository = new PrismaBedsRepository();
+  const createBedUseCase = new CreateBedUseCase(
+    prismaBedsRepository,
+  )
+
+  const bedCreated = await createBedUseCase.create({name, patientId})
+
+  return response.status(200).send({data: bedCreated})
+})
+
+routes.put('/leitos/:id', async (request, response) => {
+  const { id } = request.params;
+  const { name, patientId } = request.body;
+
+  const prismaBedRepository = new PrismaBedsRepository();
+  const updateBedUseCase = new UpdateBedUseCase(
+    prismaBedRepository,
+  )
+
+  const bedUpdate = await updateBedUseCase.update({id, name, patientId});
+
+  return response.status(200).json({data: bedUpdate})
+})
+
+routes.delete('/leitos/:id', async (request, response) => {
+  const { id } = request.params;
+
+  const prismaBedsRepository = new PrismaBedsRepository();
+  const deleteBedUseCase = new DeleteBedUseCase(
+    prismaBedsRepository,
+  )
+
+  await deleteBedUseCase.delete({id});
+
+  return response.sendStatus(204).send({deleted: 'OK'})
 })

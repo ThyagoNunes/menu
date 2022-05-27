@@ -26,5 +26,5 @@ export interface PatientsRepository {
   show: (data: PatientsRepositoryShowData) => Promise<Patient | null>;
   create: (data: PatientsRepositoryCreateDate) => Promise<Patient | null> ;
   update: (data: PatientsRepositoryUpdateData) => Promise<Patient | null>;
-  delete: (data: PatientsRepositoryDeleteData) => Promise<Patient | null>;
+  delete: (data: PatientsRepositoryDeleteData) => Promise<Patient | string>;
 }
