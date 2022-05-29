@@ -2,7 +2,7 @@ import { BedsRepository } from "../../repositories/beds-repository";
 
 export interface UpdateBedUseCaseRequest {
   id: string,
-  name: string, 
+  name: string,
   patientId?: string,
 }
 

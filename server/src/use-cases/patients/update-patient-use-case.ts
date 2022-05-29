@@ -5,6 +5,7 @@ interface UpdatePatientUseCaseUpdate {
   name: string, 
   order: string, 
   nameBed: string,
+  category?: string,
 }
 
 export class UpdatePatientUseCase {
@@ -12,12 +13,13 @@ export class UpdatePatientUseCase {
     private patientsRepository: PatientsRepository
   ){}
 
-  async update({id,  name, order, nameBed}: UpdatePatientUseCaseUpdate) {
+  async update({id,  name, order, nameBed, category}: UpdatePatientUseCaseUpdate) {
     const patient = await this.patientsRepository.update({
       id,
       name, 
       order,
       nameBed,
+      category,
     })
 
     return patient;

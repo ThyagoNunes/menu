@@ -15,35 +15,36 @@ export class PrismaBedsRepository implements BedsRepository {
   };
 
   async show({id}: BedsRepositoryShowData) {
-    const patient = await prisma.bed.findFirst({
+    const bed = await prisma.bed.findFirst({
       where: {
         id,
       },
     })
-    return patient;
+    return bed;
   };
 
   async create({patientId, name}: BedsRepositoryCreateData) {
-    const patientNew = await prisma.bed.create({
+    const bedNew = await prisma.bed.create({
       data: {
         name,
         patientId,
       },
     })
-    return patientNew;
+    return bedNew;
   };
 
   async update({id, name, patientId}: BedsRepositoryUpdateData) {
-    const patientUpdate = await prisma.bed.update({
+    const bedUpdate = await prisma.bed.update({
       where: {
         id,
       },
       data: {
         name, 
-        patientId, 
+        patientId: patientId || ""
       }
     })
-    return patientUpdate;
+    console.log(bedUpdate)
+    return bedUpdate;
   };
                      
   async delete({id}: BedsRepositoryDeleteData) { 

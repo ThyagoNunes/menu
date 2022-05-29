@@ -10,8 +10,25 @@ import {
 export class PrismaPatientsRepository implements PatientsRepository {
   async index() {
     const patients = await prisma.patient.findMany({
+      
+      include: {
+        Bed: {
+          select: {
+            id: true,
+          }
+        },
+        Order: {
+          select: {
+            name: true
+          }
+        }
+      },
+
+
+      
     })
     
+    console.log(patients)
     return patients;
   }
 
@@ -19,33 +36,41 @@ export class PrismaPatientsRepository implements PatientsRepository {
     const patient = await prisma.patient.findFirst({
       where: {
         id,
+      }, 
+      include: {
+        
       }
     })
     return patient;
   }
 
-  async create({ name, order, nameBed} : PatientsRepositoryCreateDate) {
+  async create({ name, order, nameBed, category} : PatientsRepositoryCreateDate) {
     const patients = await prisma.patient.create({
       data: {
         name, 
         order, 
         nameBed,
+        category,
       }
     })
     return patients
   }
 
-  async update({id, name, order, nameBed}: PatientsRepositoryUpdateData) {
+  async update({id, name, order, nameBed, category}: PatientsRepositoryUpdateData) {
    
     const patientUpdated = await prisma.patient.update({
       where: {
         id,
       },
+
       data: {
         name, 
         order, 
         nameBed,
+        category,
       },
+
+  
     })
     return patientUpdated;
   }

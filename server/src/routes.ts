@@ -53,7 +53,7 @@ routes.get('/pacientes/:id', async (request, response) => {
 
 routes.post('/pacientes', async (request, response) => {
   
-  const {name, order, nameBed } = request.body;
+  const {name, order, nameBed, category } = request.body;
 
   const prismaPatientsRepository = new PrismaPatientsRepository()
   const createPatientsUseCase = new CreatePatientsUseCase(
@@ -64,6 +64,7 @@ routes.post('/pacientes', async (request, response) => {
     name,
     order,
     nameBed,
+    category,
   })
 
   return response.status(201).json({data: patientNew})
@@ -71,7 +72,7 @@ routes.post('/pacientes', async (request, response) => {
 
 routes.put('/pacientes/:id', async (request, response) => {
   const { id } = request.params;
-  const { name, order, nameBed } = request.body;
+  const { name, order, nameBed, category } = request.body;
 
   const prismaPatientsRepository = new PrismaPatientsRepository();
   const updatePatientUseCase = new UpdatePatientUseCase(
@@ -82,7 +83,8 @@ routes.put('/pacientes/:id', async (request, response) => {
     id,
     name, 
     order, 
-    nameBed
+    nameBed,
+    category,
   })
   return response.status(200).json({data: patientUpdated})
 });
@@ -201,6 +203,8 @@ routes.post('/leitos', async (request, response) => {
   const createBedUseCase = new CreateBedUseCase(
     prismaBedsRepository,
   )
+
+
 
   const bedCreated = await createBedUseCase.create({name, patientId})
 

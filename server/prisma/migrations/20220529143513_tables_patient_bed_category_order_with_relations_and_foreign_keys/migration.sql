@@ -2,8 +2,9 @@
 CREATE TABLE "patients" (
     "id" TEXT NOT NULL PRIMARY KEY,
     "name" TEXT NOT NULL,
+    "nameBed" TEXT NOT NULL,
     "order" TEXT NOT NULL,
-    "nameBed" TEXT NOT NULL
+    "category" TEXT
 );
 
 -- CreateTable

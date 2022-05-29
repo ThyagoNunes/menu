@@ -1,4 +1,4 @@
-import { Patient } from "@prisma/client";
+import { Category, Patient } from "@prisma/client";
 
 export interface PatientsRepositoryShowData {
   id: string,
@@ -8,6 +8,7 @@ export interface PatientsRepositoryCreateDate {
   name: string,
   order: string, 
   nameBed: string,
+  category?: string,
 }
 
 export interface PatientsRepositoryUpdateData {
@@ -15,6 +16,7 @@ export interface PatientsRepositoryUpdateData {
   name: string, 
   order: string, 
   nameBed: string,
+  category?: string,
 }
 
 export interface PatientsRepositoryDeleteData { 
@@ -22,7 +24,7 @@ export interface PatientsRepositoryDeleteData {
 }
 
 export interface PatientsRepository {
-  index: () => Promise<{} | null>;
+  index: () => Promise<Patient[] | null >;
   show: (data: PatientsRepositoryShowData) => Promise<Patient | null>;
   create: (data: PatientsRepositoryCreateDate) => Promise<Patient | null> ;
   update: (data: PatientsRepositoryUpdateData) => Promise<Patient | null>;
