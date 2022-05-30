@@ -10,9 +10,7 @@ import {
 export class PrismaCategoriesRepository implements CategoriesRepository {
   async index() {
     const categories = await prisma.category.findMany({
-      include: {
-       Order: true
-      }
+      
     });
     return categories;
   };

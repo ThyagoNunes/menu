@@ -22,6 +22,10 @@ import { CreateBedUseCase } from './use-cases/beds/create-bed-use-case';
 import { UpdateBedUseCase } from './use-cases/beds/update-bed-use-case';
 import { DeleteBedUseCase } from './use-cases/beds/delete-bed-use-case';
 
+import { PrismaOrdersRepository } from './repositories/prisma/prisma-orders-repository';
+import { ListOrdersUseCase } from './use-cases/orders/list-orders-use-case';
+import { CreateOrderUseCase } from './use-cases/orders/create-order-use-case';
+
 export const routes = Router();
 
 
@@ -53,7 +57,7 @@ routes.get('/pacientes/:id', async (request, response) => {
 
 routes.post('/pacientes', async (request, response) => {
   
-  const {name, order, category } = request.body;
+  const {name} = request.body;
 
   const prismaPatientsRepository = new PrismaPatientsRepository()
   const createPatientsUseCase = new CreatePatientsUseCase(
@@ -62,8 +66,6 @@ routes.post('/pacientes', async (request, response) => {
 
   const patientNew = await createPatientsUseCase.execute({
     name,
-    order,
-    category,
   })
 
   return response.status(201).json({data: patientNew})
@@ -71,7 +73,7 @@ routes.post('/pacientes', async (request, response) => {
 
 routes.put('/pacientes/:id', async (request, response) => {
   const { id } = request.params;
-  const { name, order, category } = request.body;
+  const { name} = request.body;
 
   const prismaPatientsRepository = new PrismaPatientsRepository();
   const updatePatientUseCase = new UpdatePatientUseCase(
@@ -80,9 +82,7 @@ routes.put('/pacientes/:id', async (request, response) => {
   
   const patientUpdated = await updatePatientUseCase.update({
     id,
-    name, 
-    order, 
-    category,
+    name,
   })
   return response.status(200).json({data: patientUpdated})
 });
@@ -169,7 +169,6 @@ routes.delete('/categorias/:id', async (request, response) => {
   
 }) 
 
-
 routes.get('/leitos', async (request, response) => {
     const prismaBedsRepository = new PrismaBedsRepository();
     const listBedsUseCase = new ListBedsUseCase(
@@ -234,4 +233,34 @@ routes.delete('/leitos/:id', async (request, response) => {
   await deleteBedUseCase.delete({id});
 
   return response.sendStatus(204).send({deleted: 'OK'})
+})
+
+routes.get('/pedidos', async (request, response) => {
+  const prismaOrdersRepository = new PrismaOrdersRepository();
+  const listOrdersUseCase = new ListOrdersUseCase(
+    prismaOrdersRepository,
+  )
+
+  const orders = await listOrdersUseCase.index();
+
+  return response.status(200).json({data: orders})
+})
+
+routes.post('/pedidos', async(request, response) => {
+  const { 
+    name, patientId, categoryId
+  } = request.body;
+
+  const prismaOrdersRepository = new PrismaOrdersRepository()
+  const createOrderUseCase = new CreateOrderUseCase(
+    prismaOrdersRepository,
+  )
+
+  const orderCreate = await createOrderUseCase.create({
+    name, 
+    patientId, 
+    categoryId
+  })
+
+  return response.status(200).json({data: orderCreate})
 })

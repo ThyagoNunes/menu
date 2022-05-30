@@ -6,15 +6,11 @@ export interface PatientsRepositoryShowData {
 
 export interface PatientsRepositoryCreateDate {
   name: string,
-  order: string, 
-  category?: string,
 }
 
 export interface PatientsRepositoryUpdateData {
   id: string | undefined,
   name: string, 
-  order: string, 
-  category?: string,
 }
 
 export interface PatientsRepositoryDeleteData { 

@@ -6,15 +6,15 @@ export interface OrdersRepositoryShowData {
 
 export interface OrdersRepositoryCreateData {
   name: string, 
-  patientId?: string,
+  patientId: string,
   categoryId: string,
 };
 
 export interface OrdersRepositoryUpdateData { 
   id: string,
   name: string,
-  patientId?: string,
-  categoryId?: string, 
+  patientId: string,
+  categoryId: string, 
 }
 
 export interface OrdersRepositoryDeleteData { 
@@ -27,5 +27,5 @@ export interface OrdersRepository {
   show: (data: OrdersRepositoryShowData) => Promise<Order | null>
   create: (data: OrdersRepositoryCreateData) => Promise<Order | null>
   update: (data: OrdersRepositoryUpdateData) => Promise<Order | null>
-  delete: (data: OrdersRepositoryDeleteData) => Promise<Order | null>
+  delete: (data: OrdersRepositoryDeleteData) => Promise<Order | string>
 }
