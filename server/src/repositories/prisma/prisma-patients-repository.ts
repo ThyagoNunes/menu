@@ -14,7 +14,7 @@ export class PrismaPatientsRepository implements PatientsRepository {
       include: {
         Bed: {
           select: {
-            id: true,
+            name: true,
           }
         },
         Order: {
@@ -22,13 +22,9 @@ export class PrismaPatientsRepository implements PatientsRepository {
             name: true
           }
         }
-      },
-
-
-      
+      },      
     })
     
-    console.log(patients)
     return patients;
   }
 
@@ -44,19 +40,18 @@ export class PrismaPatientsRepository implements PatientsRepository {
     return patient;
   }
 
-  async create({ name, order, nameBed, category} : PatientsRepositoryCreateDate) {
+  async create({ name, order, category} : PatientsRepositoryCreateDate) {
     const patients = await prisma.patient.create({
       data: {
         name, 
         order, 
-        nameBed,
         category,
       }
     })
     return patients
   }
 
-  async update({id, name, order, nameBed, category}: PatientsRepositoryUpdateData) {
+  async update({id, name, order, category}: PatientsRepositoryUpdateData) {
    
     const patientUpdated = await prisma.patient.update({
       where: {
@@ -66,7 +61,6 @@ export class PrismaPatientsRepository implements PatientsRepository {
       data: {
         name, 
         order, 
-        nameBed,
         category,
       },
 

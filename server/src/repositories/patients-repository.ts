@@ -1,4 +1,4 @@
-import { Category, Patient } from "@prisma/client";
+import { Patient } from "@prisma/client";
 
 export interface PatientsRepositoryShowData {
   id: string,
@@ -7,7 +7,6 @@ export interface PatientsRepositoryShowData {
 export interface PatientsRepositoryCreateDate {
   name: string,
   order: string, 
-  nameBed: string,
   category?: string,
 }
 
@@ -15,7 +14,6 @@ export interface PatientsRepositoryUpdateData {
   id: string | undefined,
   name: string, 
   order: string, 
-  nameBed: string,
   category?: string,
 }
 

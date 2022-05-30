@@ -14,7 +14,6 @@ export class PrismaCategoriesRepository implements CategoriesRepository {
        Order: true
       }
     });
-    console.log(categories)
     return categories;
   };
 

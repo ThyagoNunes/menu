@@ -10,7 +10,6 @@ datasource db {
 model Patient {
   id       String  @id @default(uuid())
   name     String
-  nameBed  String  @unique
   order    String
   category String?
   Bed      Bed[] // this foreign key contains Bed

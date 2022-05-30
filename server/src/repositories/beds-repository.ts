@@ -12,7 +12,7 @@ export interface BedsRepositoryCreateData {
 export interface BedsRepositoryUpdateData {
   id: string, 
   name: string, 
-  patientId?: string,
+  patientId?: string | null,
 }
 
 export interface BedsRepositoryDeleteData { 

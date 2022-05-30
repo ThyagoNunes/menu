@@ -9,7 +9,11 @@ import {
 
 export class PrismaBedsRepository implements BedsRepository {
   async index() {
-    const beds = await prisma.bed.findMany({})
+    const beds = await prisma.bed.findMany({
+      orderBy: {  
+        name: 'asc'
+     }
+    })
 
     return beds;
   };
@@ -40,10 +44,9 @@ export class PrismaBedsRepository implements BedsRepository {
       },
       data: {
         name, 
-        patientId: patientId || ""
+        patientId: patientId || null
       }
     })
-    console.log(bedUpdate)
     return bedUpdate;
   };
                      
