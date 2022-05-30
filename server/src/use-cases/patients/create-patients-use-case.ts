@@ -7,7 +7,8 @@ export interface CreatePatientsUseCaseRequest {
 export class CreatePatientsUseCase {
   constructor(
     private patientsRepository: PatientsRepository
-  ) {}
+  ) {
+  }
 
   async execute({ name}: CreatePatientsUseCaseRequest) {
     const patients = await this.patientsRepository.create({

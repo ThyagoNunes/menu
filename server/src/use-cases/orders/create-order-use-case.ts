@@ -11,7 +11,7 @@ export class CreateOrderUseCase {
     private ordersRepository: OrdersRepository
   ){}
 
-  async create({name, patientId, categoryId}: CreateOrderUseCaseRequest) {
+  async execute({name, patientId, categoryId}: CreateOrderUseCaseRequest) {
     const orderCreate = await this.ordersRepository.create({
       name, 
       patientId,

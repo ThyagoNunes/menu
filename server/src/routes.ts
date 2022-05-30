@@ -203,7 +203,7 @@ routes.post('/leitos', async (request, response) => {
 
 
 
-  const bedCreated = await createBedUseCase.create({name, patientId})
+  const bedCreated = await createBedUseCase.execute({name, patientId})
 
   return response.status(200).send({data: bedCreated})
 })
@@ -256,7 +256,7 @@ routes.post('/pedidos', async(request, response) => {
     prismaOrdersRepository,
   )
 
-  const orderCreate = await createOrderUseCase.create({
+  const orderCreate = await createOrderUseCase.execute({
     name, 
     patientId, 
     categoryId
