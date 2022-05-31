@@ -6,15 +6,11 @@ export interface PatientsRepositoryShowData {
 
 export interface PatientsRepositoryCreateDate {
   name: string,
-  order: string, 
-  nameBed: string,
 }
 
 export interface PatientsRepositoryUpdateData {
   id: string | undefined,
   name: string, 
-  order: string, 
-  nameBed: string,
 }
 
 export interface PatientsRepositoryDeleteData { 
@@ -22,9 +18,9 @@ export interface PatientsRepositoryDeleteData {
 }
 
 export interface PatientsRepository {
-  index: () => Promise<{} | null>;
+  index: () => Promise<Patient[] | null >;
   show: (data: PatientsRepositoryShowData) => Promise<Patient | null>;
   create: (data: PatientsRepositoryCreateDate) => Promise<Patient | null> ;
   update: (data: PatientsRepositoryUpdateData) => Promise<Patient | null>;
-  delete: (data: PatientsRepositoryDeleteData) => Promise<Patient | string>;
+  delete: (data: PatientsRepositoryDeleteData) => Promise<Patient | null>;
 }

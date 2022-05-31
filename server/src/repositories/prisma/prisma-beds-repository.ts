@@ -9,41 +9,45 @@ import {
 
 export class PrismaBedsRepository implements BedsRepository {
   async index() {
-    const beds = await prisma.bed.findMany({})
+    const beds = await prisma.bed.findMany({
+      orderBy: {  
+        name: 'asc'
+     }
+    })
 
     return beds;
   };
 
   async show({id}: BedsRepositoryShowData) {
-    const patient = await prisma.bed.findFirst({
+    const bed = await prisma.bed.findFirst({
       where: {
         id,
       },
     })
-    return patient;
+    return bed;
   };
 
   async create({patientId, name}: BedsRepositoryCreateData) {
-    const patientNew = await prisma.bed.create({
+    const bedNew = await prisma.bed.create({
       data: {
         name,
         patientId,
       },
     })
-    return patientNew;
+    return bedNew;
   };
 
   async update({id, name, patientId}: BedsRepositoryUpdateData) {
-    const patientUpdate = await prisma.bed.update({
+    const bedUpdate = await prisma.bed.update({
       where: {
         id,
       },
       data: {
         name, 
-        patientId, 
+        patientId: patientId || null
       }
     })
-    return patientUpdate;
+    return bedUpdate;
   };
                      
   async delete({id}: BedsRepositoryDeleteData) { 

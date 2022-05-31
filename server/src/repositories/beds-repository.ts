@@ -12,11 +12,15 @@ export interface BedsRepositoryCreateData {
 export interface BedsRepositoryUpdateData {
   id: string, 
   name: string, 
-  patientId?: string,
+  patientId?: string | null,
 }
 
 export interface BedsRepositoryDeleteData { 
   id: string,
+}
+
+export interface BedsRepositoryFindData {
+  patientId: string,
 }
 
 export interface BedsRepository {
@@ -25,4 +29,5 @@ export interface BedsRepository {
   create: (data: BedsRepositoryCreateData) => Promise<Bed | null>
   update: (data: BedsRepositoryUpdateData) => Promise<Bed | null>
   delete: (data: BedsRepositoryDeleteData) => Promise<Bed | string>
+  /* find: (data: BedsRepositoryFindData) => Promise<Bed | null> */
 }

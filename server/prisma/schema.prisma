@@ -8,11 +8,10 @@ datasource db {
 }
 
 model Patient {
-  id      String @id @default(uuid())
-  name    String
-  nameBed String @unique
-  Bed     Bed[] // this foreign key contains Bed
-
+  id    String  @id @default(uuid())
+  name  String
+  Bed   Bed[] // this foreign key contains Bed
+  Order Order[] // this foreign key contains Order
 
   @@map("patients")
 }
@@ -20,7 +19,7 @@ model Patient {
 model Bed {
   id        String   @id @default(uuid())
   name      String   @unique
-  patientId String?
+  patientId String?  @unique
   Patient   Patient? @relation(fields: [patientId], references: [id]) // Relation table. Where attribute patientId has relation with this table
 
   @@map("beds")
@@ -39,6 +38,7 @@ model Order {
   id         String    @id @default(uuid())
   name       String
   patientId  String    @unique
+  Patient    Patient?  @relation(fields: [patientId], references: [id])
   categoryId String
   Category   Category? @relation(fields: [categoryId], references: [id]) // Relation table. Where attribute categoryId has relation with this table
 

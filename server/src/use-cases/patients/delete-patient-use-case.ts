@@ -10,8 +10,6 @@ export class DeletePatientUseCase {
   ){}
 
   async delete({id}: DeletePatientUseCaseRequest) {
-    await this.patientsRepository.delete({id})
-
-    return 'Deleted';
+    await this.patientsRepository.delete({id});
   }
 }

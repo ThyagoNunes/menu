@@ -10,7 +10,7 @@ export class CreateBedUseCase {
     private bedsRepository: BedsRepository
   ) {}
 
-  async create({patientId, name}: CreateBedUseCaseRequest) {
+  async execute({patientId, name}: CreateBedUseCaseRequest) {
     const bedCreate = await this.bedsRepository.create({patientId, name})
 
     return bedCreate;

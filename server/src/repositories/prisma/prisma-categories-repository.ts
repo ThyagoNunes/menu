@@ -9,8 +9,9 @@ import {
 
 export class PrismaCategoriesRepository implements CategoriesRepository {
   async index() {
-    const categories = await prisma.category.findMany({});
-
+    const categories = await prisma.category.findMany({
+      
+    });
     return categories;
   };
 
