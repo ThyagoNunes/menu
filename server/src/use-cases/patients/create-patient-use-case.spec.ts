@@ -1,11 +1,6 @@
 /* 
 describe = switch de testes. 
 Criando uma categorização para vários testes de uma única funcionalidade 
-
-/*
-10y28
-v57
-57.8 
 */
 
 import { CreatePatientUseCase } from "./create-patient-use-case";
