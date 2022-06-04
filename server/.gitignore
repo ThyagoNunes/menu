@@ -6,5 +6,3 @@ coverage/
 .env
 
 .vscode/**/*
-.vscode/*
-.vscode
