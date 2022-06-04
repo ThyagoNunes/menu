@@ -32,10 +32,15 @@ export default {
     "/node_modules/",
     "test-config",
     "interfaces",
+    "prisma",
+    "src/repositories",
+    "jestGlobalMocks.ts",
     "jestGlobalMocks.ts",
     ".module.ts",
     "<rootDir>/src/app/main.ts",
-    ".mock.ts"
+    ".mock.ts",
+    "routes.ts",
+    'server.ts'
   ],
 
   // Indicates which provider should be used to instrument code for coverage
