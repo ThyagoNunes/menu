@@ -10,8 +10,12 @@ export class ShowOrderUseCase {
   ){}
 
   async show({id}: ShowOrderUseCaseId){
-    const orderShow = await this.ordersRepository.show({id})
 
+    if(!id){
+      throw new Error('ID is required')
+    }
+
+    const orderShow = await this.ordersRepository.show({id})
     return orderShow;
   }
 }

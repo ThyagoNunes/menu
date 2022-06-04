@@ -10,8 +10,11 @@ export class DeletePatientUseCase {
   ){}
 
   async delete({id}: DeletePatientUseCaseRequest) {
-    await this.patientsRepository.delete({id})
 
-    return 'Deleted';
+    if (!id) {
+      throw new Error('Id is required');
+    }
+
+    await this.patientsRepository.delete({id});
   }
 }

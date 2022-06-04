@@ -10,6 +10,10 @@ export class DeleteBedUseCase {
   ){}
 
   async delete({id}: DeleteBedUseCaseRequest) {
+    if(!id) {
+      throw new Error('ID is required');
+    }
+    
     await this.bedsRepository.delete({id});
 
     return 'Deleted';

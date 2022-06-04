@@ -13,6 +13,20 @@ export class UpdateOrderUseCase {
   ){}
 
   async update({id, name, patientId, categoryId}: UpdateOrderUseCaseRequest){
+
+    if(!id){
+      throw new Error('ID is required')
+    }
+    if(!name){
+      throw new Error('NAME is required')
+    }
+    if(!patientId){
+      throw new Error('ID PATIENT is required')
+    }
+    if(!categoryId){
+      throw new Error('ID CATEGORY is required')
+    }
+
     const orderUpdate = await this.ordersRepository.update({
       id, 
       name, 

@@ -11,6 +11,10 @@ export class CreateBedUseCase {
   ) {}
 
   async execute({patientId, name}: CreateBedUseCaseRequest) {
+    if(!name){
+      throw new Error('NAME is required')
+    }
+
     const bedCreate = await this.bedsRepository.create({patientId, name})
 
     return bedCreate;

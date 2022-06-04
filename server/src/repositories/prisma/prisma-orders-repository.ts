@@ -9,7 +9,25 @@ import {
 
 export class PrismaOrdersRepository implements OrdersRepository {
   async index() {
-    const orders = await prisma.order.findMany({})
+    const orders = await prisma.order.findMany({
+      include:{
+        Category: {
+          select: {
+            name:true
+          },
+        },
+        Patient: {
+          select: {
+            name: true,
+            Bed: {
+              select: {
+                name: true,
+              }
+            }
+          }
+        }
+      }
+    })
 
     return orders;
   };

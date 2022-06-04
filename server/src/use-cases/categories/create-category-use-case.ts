@@ -9,6 +9,8 @@ export class CreateCategoryUseCase {
   ){}
 
   async execute({name}: CreateCategoryUseCaseRequest) {
+    
+
     const categoryCreate = await this.categoriesRepository.create({name})
 
     return categoryCreate;

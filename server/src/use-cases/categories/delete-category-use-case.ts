@@ -10,6 +10,10 @@ export class DeleteCategoryUseCase {
   ){}
 
   async delete({id}: DeleteCategoryUseCaseRequest) {
+    if(!id) {
+      throw new Error('ID is required');
+    }
+
     await this.categoriesRepository.delete({id});
 
     return 'Deleted';

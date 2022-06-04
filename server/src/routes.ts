@@ -6,7 +6,7 @@ import { PrismaBedsRepository } from './repositories/prisma/prisma-beds-reposito
 
 import { ListPatientsUseCase } from './use-cases/patients/list-patients-use-case'
 import { ShowPatientUseCase } from './use-cases/patients/show-patient-use-case';
-import { CreatePatientsUseCase } from './use-cases/patients/create-patients-use-case';
+import { CreatePatientUseCase } from './use-cases/patients/create-patient-use-case';
 import { UpdatePatientUseCase } from './use-cases/patients/update-patient-use-case';
 import { DeletePatientUseCase } from './use-cases/patients/delete-patient-use-case';
 
@@ -21,6 +21,8 @@ import { ShowBedUseCase } from './use-cases/beds/show-bed-use-case';
 import { CreateBedUseCase } from './use-cases/beds/create-bed-use-case';
 import { UpdateBedUseCase } from './use-cases/beds/update-bed-use-case';
 import { DeleteBedUseCase } from './use-cases/beds/delete-bed-use-case';
+import { OccupedBedsUseCase } from './use-cases/beds/occuped-beds-use-case';
+import { VacantBedsUseCase } from './use-cases/beds/vacant-beds-use-case';
 
 import { PrismaOrdersRepository } from './repositories/prisma/prisma-orders-repository';
 import { ListOrdersUseCase } from './use-cases/orders/list-orders-use-case';
@@ -60,11 +62,11 @@ routes.post('/pacientes', async (request, response) => {
   const {name} = request.body;
 
   const prismaPatientsRepository = new PrismaPatientsRepository()
-  const createPatientsUseCase = new CreatePatientsUseCase(
+  const createPatientUseCase = new CreatePatientUseCase(
     prismaPatientsRepository,
   );
 
-  const patientNew = await createPatientsUseCase.execute({
+  const patientNew = await createPatientUseCase.execute({
     name,
   })
 
@@ -180,6 +182,30 @@ routes.get('/leitos', async (request, response) => {
     return response.status(200).json({data: beds})
 });
 
+routes.get('/leitos/ocupados', async (request, response) => {
+
+  const prismaBedsRepository = new PrismaBedsRepository();
+  const occupedBedsUseCase = new OccupedBedsUseCase(
+    prismaBedsRepository,
+  )
+
+  const beds = await occupedBedsUseCase.occuped();
+
+  return response.status(200).json({data: beds})
+});
+
+routes.get('/leitos/vagos', async (request, response) => {
+
+  const prismaBedsRepository = new PrismaBedsRepository();
+  const vacantBedsUseCase = new VacantBedsUseCase(
+    prismaBedsRepository,
+  )
+
+  const beds = await vacantBedsUseCase.vacant();
+
+  return response.status(200).json({data: beds})
+});
+
 routes.get('/leitos/:id', async (request, response) => {
   const { id } = request.params;
 
@@ -193,6 +219,22 @@ routes.get('/leitos/:id', async (request, response) => {
   return response.status(200).json({bed});
 })
 
+/* routes.get('/leitos/:name', async (request, response) => {
+  const { name, patientId } = request.body;
+
+  const prismaBedsRepository = new PrismaBedsRepository();
+  const occupedBedUseCase = new OccupedBedUseCase(
+    prismaBedsRepository,
+  )
+
+  const bed = await occupedBedUseCase.occuped({
+    name, 
+    patientId
+  });
+
+  return response.status(200).json({data: bed})
+}) */
+
 routes.post('/leitos', async (request, response) => {
   const { name, patientId } = request.body;
   
@@ -200,8 +242,6 @@ routes.post('/leitos', async (request, response) => {
   const createBedUseCase = new CreateBedUseCase(
     prismaBedsRepository,
   )
-
-
 
   const bedCreated = await createBedUseCase.execute({name, patientId})
 

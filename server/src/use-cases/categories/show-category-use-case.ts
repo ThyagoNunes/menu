@@ -10,6 +10,10 @@ export class ShowCategoryUseCase {
   ){}
 
   async show({id}: ShowCategoryUseCaseId) {
+    if(!id){
+      throw new Error('ID is required');
+    }
+
     const categoryShow = await this.categoriesRepository.show({id});
 
     return categoryShow

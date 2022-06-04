@@ -18,7 +18,7 @@ export interface PatientsRepositoryDeleteData {
 }
 
 export interface PatientsRepository {
-  index: () => Promise<Patient[] | null >;
+  index: () => Promise<Patient[] | string >;
   show: (data: PatientsRepositoryShowData) => Promise<Patient | null>;
   create: (data: PatientsRepositoryCreateDate) => Promise<Patient | null> ;
   update: (data: PatientsRepositoryUpdateData) => Promise<Patient | null>;

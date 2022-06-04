@@ -10,7 +10,12 @@ export class ShowPatientUseCase {
   ){}
 
   async show({id}: ShowPatientUseCaseId) {
+    if(!id){
+      throw new Error('id is required');
+    }
+
     const patientInfo = await this.patientsRepository.show({id});
+
 
     return patientInfo;
   }

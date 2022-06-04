@@ -11,6 +11,13 @@ export class UpdateCategoryUseCase {
   ){}
 
   async update({id, name}: UpdateCategoryUseCaseRequest) {
+    if(!id){
+      throw new Error('ID is Required');
+    }
+    if(!name){
+      throw new Error('NAME is Required');
+    }
+
     const categoryUpdate = await this.categoriesRepository.update({id, name})
 
     return categoryUpdate;

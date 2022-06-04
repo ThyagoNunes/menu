@@ -4,7 +4,7 @@ import {
   BedsRepositoryCreateData, 
   BedsRepositoryDeleteData, 
   BedsRepositoryShowData, 
-  BedsRepositoryUpdateData
+  BedsRepositoryUpdateData,
 } from '../beds-repository';
 
 export class PrismaBedsRepository implements BedsRepository {
@@ -15,6 +15,27 @@ export class PrismaBedsRepository implements BedsRepository {
      }
     })
 
+    return beds;
+  };
+
+  async occuped() {
+    const beds = await prisma.bed.findMany({
+      where: {
+        Patient: {
+          isNot: null
+        }}      
+    })
+    return beds;
+  };
+
+  async vacant() {
+    const beds = await prisma.bed.findMany({
+      // isNot: null is not null
+      where: {
+        Patient: {
+          is: null, // is null
+        }}      
+    })
     return beds;
   };
 
@@ -59,5 +80,13 @@ export class PrismaBedsRepository implements BedsRepository {
 
     return 'Deleted'
   };
+/* 
+  async occuped({name, patientId}: BedsRepositoryOccuped) {
+    const occuped = await prisma.bed.findMany({
+      where: {}
+    })
+    console.log(occuped);
+    return occuped
+  } */
 
 };

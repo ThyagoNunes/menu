@@ -12,6 +12,19 @@ export class CreateOrderUseCase {
   ){}
 
   async execute({name, patientId, categoryId}: CreateOrderUseCaseRequest) {
+
+    if(!name){
+      throw new Error('Name is required');
+    }
+
+    if(!patientId){
+      throw new Error('ID patient is required');
+    }
+
+    if(!categoryId){
+      throw new Error('ID category is required');
+    }
+
     const orderCreate = await this.ordersRepository.create({
       name, 
       patientId,
