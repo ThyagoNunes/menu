@@ -219,22 +219,6 @@ routes.get('/leitos/:id', async (request, response) => {
   return response.status(200).json({bed});
 })
 
-/* routes.get('/leitos/:name', async (request, response) => {
-  const { name, patientId } = request.body;
-
-  const prismaBedsRepository = new PrismaBedsRepository();
-  const occupedBedUseCase = new OccupedBedUseCase(
-    prismaBedsRepository,
-  )
-
-  const bed = await occupedBedUseCase.occuped({
-    name, 
-    patientId
-  });
-
-  return response.status(200).json({data: bed})
-}) */
-
 routes.post('/leitos', async (request, response) => {
   const { name, patientId } = request.body;
   
