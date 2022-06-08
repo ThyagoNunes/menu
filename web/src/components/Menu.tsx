@@ -4,23 +4,20 @@ import { Bed, ClipboardText, FirstAid, List } from "phosphor-react";
 import { MenuPatients } from './MenuPatient';
 import { MenuOrders } from './MenuOrder';
 import { MenuCategories } from "./MenuCategory";
+import { MenuBeds } from './MenuBed';
 
 import hospital from '../assets/hospital.png'
 import foodDelivery from '../assets/foodDelivery.png'
-import { MenuBeds } from './MenuBed';
-/* import diet from '../assets/diet.png' */
-
 
 
 export function Menu() {
   return ( // initial render 
     <>
-    <div >
-      
-      <img className="absolute top-16 right-96 w-32 r" src={hospital} alt="imagem de um hospital" />
-      <img className="absolute top-10 left-96 w-32" src={foodDelivery} alt="imagem de uma mão segurando um sino" />
-      {/* <img className="absolute top-10 left-44 w-32" src={diet} alt="imagem de comidas saudavéis" /> */}
-      <div className="flex flex-row relative m-auto md:left-0 md:top-28 justify-center">
+      <div >
+
+        <img className="absolute top-16 right-96 w-32 r" src={hospital} alt="imagem de um hospital" />
+        <img className="absolute top-10 left-96 w-32" src={foodDelivery} alt="imagem de uma mão segurando um sino" />
+        <div className="flex flex-row relative m-auto md:left-0 md:top-28 justify-center">
 
 
           <Popover>
@@ -78,8 +75,8 @@ export function Menu() {
               <MenuBeds />
             </Popover.Panel>
           </Popover>
-          
-      </div>
+
+        </div>
       </div>
     </>
   );

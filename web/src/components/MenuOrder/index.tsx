@@ -6,8 +6,9 @@ import createOrderImageUrl from '../../assets/check-list.png' // sub this icon f
 import updateOrderImageUrl from '../../assets/checklist.png' // sub this icon for other icon with appearance equal UPDATE SOMETHING
 import deleteImageUrl from '../../assets/delete.png' // sub this icon for other icon with appearance equal DELETE SOMETHING
 import { OrderTypeStep } from "./Steps/OrderTypeStep"
+import { OrderContentStep } from "./Steps/OrderContentStep"
 
-export const orderTypes = {
+export const orderFunctionTypes = {
   INSERT: {
     title: 'Cadastrar', 
     image: {
@@ -33,29 +34,36 @@ export const orderTypes = {
   },
 };
 
-export type OrderTypes = keyof typeof orderTypes
+export type OrderFunctionTypes = keyof typeof orderFunctionTypes
 
 export function MenuOrders() {
-  const [orderMenu, setOrderMenu] = useState<OrderTypes | null>(null)
+  const [orderFunctionType, setOrderFunctionType] = useState<OrderFunctionTypes | null>(null)
+
+  function handleRestartMenuOrder () {
+    setOrderFunctionType(null)
+  }
 
   return (
     <>
-      <div className="bg-zinc-900 p-4 relative top-12 left-52 rounded-2xl mt-10 flex flex-col items-center shadow-lg w-[calc(66vw)] font-bold font-mono"> {/* space left to right */}
-        <header>
-          <span className="text-xl leading-6">Pedidos</span>
+      <div className="bg-zinc-900 p-4 pb-20 relative top-12 left-48 rounded-2xl mt-10 flex flex-col items-center shadow-lg w-[calc(66vw)] h-[calc(25vw)] font-bold font-mono"> {/* space left to right */} {/* space left to right */}
+      <header>
+        <span className="text-xl leading-6 "></span>
 
-          <CloseButton />
-        </header>
+        <CloseButton />
+      </header>
 
-        {!orderMenu ? (
-          <OrderTypeStep onOrderMenuChanged={setOrderMenu}/>
+        {!orderFunctionType ? (
+          <OrderTypeStep onOrderFunctionTypeChanged={setOrderFunctionType}/>
         ): (
-          <p>Hello World</p>
+          <OrderContentStep
+            orderFunctionType={orderFunctionType}
+            onMenuOrderRestartRequested={handleRestartMenuOrder}
+          />
         )}
 
 
-        <footer className="text-xs text-neutral-400">
-          Feito com ♥ Por <a className="underline underline-offset-2" href="https://github.com/ThyagoNunes">Thyago Nunes</a>
+      <footer className=" absolute bottom-10 text-neutral-400 text-lg ">
+          Feito por: <a className="underline underline-offset-2" href="https://github.com/ThyagoNunes">Thyago Nunes</a>
         </footer>
       </div>
     </>

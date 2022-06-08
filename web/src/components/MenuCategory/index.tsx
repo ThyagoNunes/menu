@@ -6,8 +6,9 @@ import createCategoryImageUrl from '../../assets/categories.png' // sub this ico
 import updateCategoryImageUrl from '../../assets/checklist.png' // sub this icon for other icon with appearance equal UPDATE SOMETHING
 import deleteCategoryImageUrl from '../../assets/delete.png' // sub this icon for other icon with appearance equal DELETE SOMETHING
 import { CategoryTypeStep } from "./Steps/CategoryTypeStep"
+import { CategoryContentStep } from "./Steps/CategoryContentStep"
 
-export const categoryTypes = {
+export const categoryFunctionTypes = {
   INSERT: {
     title: 'Cadastrar', 
     image: {
@@ -33,29 +34,38 @@ export const categoryTypes = {
   },
 };
 
-export type CategoryTypes = keyof typeof categoryTypes
+export type CategoryFunctionTypes = keyof typeof categoryFunctionTypes
 
 export function MenuCategories() {
-  const [categoryMenu, setCategoryMenu] = useState<CategoryTypes | null>(null)
+  const [categoryFunctionType, setCategoryFunctionType] = useState<CategoryFunctionTypes | null>(null)
+
+  function handleRestartMenuCategory () {
+    setCategoryFunctionType(null)
+  }
 
   return (
     <>
-      <div className="bg-zinc-900 p-4 relative top-12 left-52 rounded-2xl mt-10 flex flex-col items-center shadow-lg w-[calc(66vw)] font-bold font-mono"> {/* space left to right */}
+      <div className="bg-zinc-900 p-4 pb-20 relative top-12 left-48 rounded-2xl mt-10 flex flex-col items-center shadow-lg w-[calc(66vw)] h-[calc(25vw)] font-bold font-mono"> {/* space left to right */} {/* space left to right */}
+     
         <header>
-          <span className="text-xl leading-6">Categorias</span>
+          <span className="text-xl leading-6"></span>
 
           <CloseButton />
         </header>
 
-        {!categoryMenu ? (
-          <CategoryTypeStep onCategoryMenuChanged={setCategoryMenu}/>
+        {!categoryFunctionType ? (
+          <CategoryTypeStep onCategoryFunctionTypeChanged={setCategoryFunctionType}/>
         ): (
-          <p>Hello World</p>
+          <CategoryContentStep
+            categoryFunctionType={categoryFunctionType}
+            onMenuCategoryRestartRequested={handleRestartMenuCategory}
+
+          />
         )}
 
 
-        <footer className="text-xs text-neutral-400">
-          Feito com ♥ Por <a className="underline underline-offset-2" href="https://github.com/ThyagoNunes">Thyago Nunes</a>
+        <footer className=" absolute bottom-10 text-neutral-400 text-lg ">
+          Feito por: <a className="underline underline-offset-2" href="https://github.com/ThyagoNunes">Thyago Nunes</a>
         </footer>
       </div>
     </>

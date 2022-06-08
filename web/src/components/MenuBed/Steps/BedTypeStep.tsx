@@ -1,19 +1,19 @@
-import { bedTypes, BedTypes,  } from ".."
+import { bedFunctionTypes, BedFunctionTypes,  } from ".."
 
 interface BedTypeStepProps {
-  onBedMenuChanged: (type: BedTypes) => void
+  onBedMenuChanged: (type: BedFunctionTypes) => void
 }
 
-export function PatientTypeStep({onBedMenuChanged}: BedTypeStepProps) {
+export function BedTypeStep({onBedMenuChanged}: BedTypeStepProps) {
   return (
     <>
       <div className="flex py-2 gap-2 w-full">
-        {Object.entries(bedTypes).map(([key, value]) => {
+        {Object.entries(bedFunctionTypes).map(([key, value]) => {
           return (
             <button
               key={key}
               className="bg-zinc-800 rounded-lg py-5 w-24 flex-1 flex flex-col items-center gap-2 border-2 border-transparent hover:border-brand-500 focus:border-brand-500 focus:outline-none"
-              onClick={() => onBedMenuChanged(key as BedTypes)}
+              onClick={() => onBedMenuChanged(key as BedFunctionTypes)}
               type="button"
             >
               <img src={value.image.source} alt={value.image.alt} />
