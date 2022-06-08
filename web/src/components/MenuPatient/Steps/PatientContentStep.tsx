@@ -16,12 +16,8 @@ export function PatientContentStep({
   patientFunctionType,
   onMenuPatientRestartRequested
 }: PatientContentStepProps) {
-
-
-
   const patientMenuInfo = patientFunctionTypes[patientFunctionType]
 
-  console.log(patientFunctionType);
 
   return (
     <>
@@ -43,10 +39,10 @@ export function PatientContentStep({
       </header>
 
       {patientFunctionType === 'INSERT' ? (<InsertPatient />)
-      :
-      patientFunctionType === 'UPDATE' ? (<UpdatePatient/>) 
-      :
-      (<DeletePatient/>)
+        :
+        patientFunctionType === 'UPDATE' ? (<UpdatePatient />)
+          :
+          (<DeletePatient />)
       }
     </>
   )

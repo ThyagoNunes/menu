@@ -21,7 +21,7 @@ export function Menu() {
 
 
           <Popover>
-            <Popover.Button className="bg-brand-500 rounded-full mx-5 px-3 h-12 text-white font-bold flex items-center group border-2 border-transparent hover:border-white focus:border-white focus:outline-none">
+            <Popover.Button className="bg-brand-500 rounded-md mx-5 px-3 h-12 text-white font-bold flex items-center group border-2 border-transparent hover:border-white focus:border-white focus:outline-none">
               <FirstAid className="w-6 h-6" />
               <span /* className="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-500 ease-linear" */>
                 <span className="pl-2"></span>
@@ -35,7 +35,7 @@ export function Menu() {
           </Popover>
 
           <Popover >
-            <Popover.Button className="bg-brand-500 rounded-full mx-5 px-3 h-12 text-white flex items-center group border-2 border-transparent hover:border-white focus:border-white focus:outline-none">
+            <Popover.Button className="bg-brand-500 rounded-md mx-5 px-3 h-12 text-white flex items-center group border-2 border-transparent hover:border-white focus:border-white focus:outline-none">
               <ClipboardText className="w-8 h-8" />
               <span /* className="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-500 ease-linear" */>
                 <span className="pl-2"></span>
@@ -49,7 +49,7 @@ export function Menu() {
           </Popover>
 
           <Popover >
-            <Popover.Button className="bg-brand-500 rounded-full mx-5 px-3 h-12 text-white flex items-center group border-2 border-transparent hover:border-white focus:border-white focus:outline-none ">
+            <Popover.Button className="bg-brand-500 rounded-md mx-5 px-3 h-12 text-white flex items-center group border-2 border-transparent hover:border-white focus:border-white focus:outline-none ">
               <List className="w-8 h-8" />
               <span /* className="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-500 ease-linear" */>
                 <span className="pl-2"></span>
@@ -63,7 +63,7 @@ export function Menu() {
           </Popover>
 
           <Popover >
-            <Popover.Button className="bg-brand-500 rounded-full mx-5 px-3 h-12 text-white flex items-center group border-2 border-transparent hover:border-white focus:border-white focus:outline-none">
+            <Popover.Button className="bg-brand-500 rounded-md mx-5 px-3 h-12 text-white flex items-center group border-2 border-transparent hover:border-white focus:border-white focus:outline-none">
               <Bed className="w-8 h-8" />
               <span /* className="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-500 ease-linear" */>
                 <span className="pl-2"></span>

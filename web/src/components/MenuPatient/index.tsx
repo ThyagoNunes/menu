@@ -11,7 +11,7 @@ export const patientFunctionTypes = {
     title: 'Cadastrar',
     image: {
       source: patientImageUrl,
-      alt: 'Imagem de um inseto',
+      alt: 'Imagem de um senhor de idade',
     },
   },
 
@@ -19,7 +19,7 @@ export const patientFunctionTypes = {
     title: 'Atualizar',
     image: {
       source: updateImageUrl,
-      alt: 'Imagem de uma lâmpada',
+      alt: 'Imagem de umaa prancheta sendo atualizada',
     },
   },
 
@@ -27,7 +27,7 @@ export const patientFunctionTypes = {
     title: 'Deletar',
     image: {
       source: deleteImageUrl,
-      alt: 'Imagem de um balão de pensamentos',
+      alt: 'Imagem de uma lixeira',
     },
   },
 };
