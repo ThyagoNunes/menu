@@ -33,9 +33,7 @@ export class PrismaPatientsRepository implements PatientsRepository {
       where: {
         id,
       }, 
-      include: {
-        
-      }
+  
     })
     return patient;
   }
