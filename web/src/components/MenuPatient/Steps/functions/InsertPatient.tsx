@@ -1,4 +1,5 @@
 import { FormEvent, useState } from "react"
+import { api } from "../../../../lib/api"
 export function InsertPatient() {
 
   const [comment, setComment] = useState<string | null>(null)
@@ -6,8 +7,8 @@ export function InsertPatient() {
   function handleSubmitContent(event: FormEvent) {
     event.preventDefault()
 
-    console.log({
-      comment
+    api.post('pacientes', {
+      
     })
   }
 
