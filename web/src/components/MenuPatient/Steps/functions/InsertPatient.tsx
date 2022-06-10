@@ -1,22 +1,24 @@
 import { FormEvent, useState } from "react"
 import { api } from "../../../../lib/api"
-export function InsertPatient() {
+import { BedsVacant } from "./BedsVacant"
 
+
+
+export function InsertPatient() {
   const [comment, setComment] = useState<string | null>(null)
 
-  function handleSubmitContent(event: FormEvent) {
+  async function handleSubmitContent(event: FormEvent) {
     event.preventDefault()
-
-    api.post('pacientes', {
-      
+    await api.post('/pacientes', {
+      name: comment,
     })
   }
 
   return (
     <>
-      <form 
-      onSubmit={handleSubmitContent} 
-      className="relative top-12 my-4 w-full text-center flex flex-row gap-5 justify-between">
+      <form
+        onSubmit={handleSubmitContent}
+        className="relative top-12 my-4 w-full text-center flex flex-row gap-5 justify-between">
         <input
           className="relative w-96 min-h[112] text-sm placeholder-zinc-400 text-zinc-100 border-zinc-600 bg-transparent rounded-md focus:border-brand-500 focus:ring-brand-500 focus:ring-1 focus:outline-none resize-none"
           type="text"
@@ -24,21 +26,8 @@ export function InsertPatient() {
           onChange={event => setComment(event.target.value)}
         />
 
-        <select
-          className="relative w-96 h[112] text-sm placeholder-zinc-400 text-zinc-100 border-zinc-600 bg-transparent rounded-md focus:border-brand-500 focus:ring-brand-500 focus:ring-1 focus:outline-none resize-none"
-        >
-          <option
-            className="absolute bg-black h-48"
-            value=" ">A1L1
-          </option>
-
-          <option
-            className="absolute bg-black h-48"
-            value=" ">A1L2
-          </option>
-
-        </select>
-
+        <BedsVacant/>
+        
         <footer className="absolute top-24 w-full flex gap-2 mt-2">
           <button
             type="submit"

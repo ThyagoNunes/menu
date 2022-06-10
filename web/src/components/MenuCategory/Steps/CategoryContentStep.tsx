@@ -1,7 +1,7 @@
 import { ArrowLeft } from "phosphor-react"
 import { CategoryFunctionTypes, categoryFunctionTypes } from ".."
 import { CloseButton } from "../../CloseButton"
-import { InserCategory } from './functions/InsertCategory'
+import { InsertCategory } from './functions/InsertCategory'
 import { UpdateCategory } from './functions/UpdateCategory'
 import { DeleteCategory } from './functions/DeleteCategory'
 
@@ -35,7 +35,7 @@ export function CategoryContentStep({
         <CloseButton />
       </header>
 
-      {categoryFunctionType === 'INSERT' ? (<InserCategory />)
+      {categoryFunctionType === 'INSERT' ? (<InsertCategory />)
         :
         categoryFunctionType === 'UPDATE' ? (<UpdateCategory />)
           :

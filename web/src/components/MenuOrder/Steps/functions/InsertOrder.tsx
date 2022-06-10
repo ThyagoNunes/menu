@@ -1,13 +1,14 @@
 import { FormEvent, useState } from "react"
+import { api } from "../../../../lib/api"
 
 export function InsertOrder() {
   const [comment, setComment] = useState<string | null>(null)
 
-  function handleSubmitContent(event: FormEvent) {
+  async function handleSubmitContent(event: FormEvent) {
     event.preventDefault()
-
-    console.log({
-      comment
+    await api.post('/pedidos', {
+      order: comment,
+      
     })
   }
 
@@ -17,7 +18,6 @@ export function InsertOrder() {
         onSubmit={handleSubmitContent} 
         className="relative top-12 my-4 w-full text-center flex flex-row gap-5 justify-center"
       >
-
         <select
           className="relative w-96 h[112] text-sm placeholder-zinc-400 text-zinc-100 border-zinc-600 bg-transparent rounded-md focus:border-brand-500 focus:ring-brand-500 focus:ring-1 focus:outline-none resize-none"
         >
