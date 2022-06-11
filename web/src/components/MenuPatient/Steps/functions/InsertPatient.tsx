@@ -21,7 +21,6 @@ export function InsertPatient() {
     return bed
   })
   .catch()
-
   const returnBedVacant = new Promise(resolve => {
     resolve(bedsVacant);
   })
