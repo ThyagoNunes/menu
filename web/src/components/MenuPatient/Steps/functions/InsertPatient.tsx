@@ -1,6 +1,5 @@
 import { FormEvent, useState } from "react"
 import { api } from "../../../../lib/api"
-import { BedsVacant } from "./BedsVacant"
 
 
 
