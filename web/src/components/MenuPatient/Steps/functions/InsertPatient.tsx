@@ -13,16 +13,11 @@ export function InsertPatient() {
     })
   }
 
-  const bedsVacant = api.get('/leitos/ocupados')
-  .then(response => {
-    const bed = [response.data]
-    console.log(bed);
-    return bed
-  })
-  .catch()
-  const returnBedVacant = new Promise(resolve => {
+/*   const returnBedVacant = new Promise(resolve => {
     resolve(bedsVacant);
-  })
+  }) */
+
+
   return (
     <>
       <form

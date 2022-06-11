@@ -9,7 +9,6 @@ interface BedContentStepProps {
   bedFunctionType: BedFunctionTypes
   onMenuBedRestartRequested: () => void
 }
-
 export function BedContentStep({ 
   bedFunctionType, 
   onMenuBedRestartRequested 
@@ -30,7 +29,7 @@ export function BedContentStep({
 
         <span className="text-xl leading-6 flex items-center gap-2 ">
           <img src={bedMenuInfo.image.source} alt={bedMenuInfo.image.alt} />
-          {bedMenuInfo.title}
+         
         </span>
          
         <CloseButton />
