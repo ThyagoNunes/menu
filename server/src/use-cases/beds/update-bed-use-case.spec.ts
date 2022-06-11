@@ -28,5 +28,4 @@ describe('Update bed', () => {
       name: '', 
     })).rejects.toThrow()
   })
-
 })
