@@ -14,6 +14,20 @@ export function InsertPatient() {
     })
   }
 
+  const bedsVacant = api.get('/leitos/ocupados')
+  .then(response => {
+    const bed = [response.data]
+    console.log(bed);
+    return bed
+  })
+  .catch()
+
+  const returnBedVacant = new Promise(resolve => {
+    resolve(bedsVacant);
+  })
+
+  
+
   return (
     <>
       <form
@@ -26,7 +40,7 @@ export function InsertPatient() {
           onChange={event => setComment(event.target.value)}
         />
 
-        <BedsVacant/>
+        {/* <BedsVacant/> */}
         
         <footer className="absolute top-24 w-full flex gap-2 mt-2">
           <button

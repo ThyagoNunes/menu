@@ -13,7 +13,7 @@ export function OccupiedBed() {
 
           <option
             className="absolute bg-black h-48"
-            value=" ">A1L2
+            value=" ">vago
           </option>
 
         </select>
