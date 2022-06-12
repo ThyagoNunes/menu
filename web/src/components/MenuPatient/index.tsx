@@ -43,7 +43,7 @@ export function MenuPatients() {
 
   return (
     <>
-      <div className="relative bg-zinc-900 p-4 pb-20 top-[5rem] m-auto rounded-2xl mt-10 flex flex-col items-center shadow-lg min-w-[65rem] max-w-[65rem] min-h-[calc(15vw)] max-h-[calc(25vw)] font-bold font-mono">
+      <div className="relative bg-zinc-900 p-4 pb-20 top-[5rem] m-auto rounded-2xl mt-10 flex flex-col items-center shadow-lg min-w-[65rem] max-w-[65rem] min-h-[calc(25vw)] max-h-[calc(25vw)] font-bold font-mono">
 
         {!patientFunctionType ? (
           <PatientTypeStep onPatientFunctionTypeChanged={setPatientFunctionType} />
