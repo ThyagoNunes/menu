@@ -43,7 +43,7 @@ export function MenuPatients() {
 
   return (
     <>
-      <div className="bg-zinc-900 p-4 pb-20 relative top-12 left-48 rounded-2xl mt-10 flex flex-col items-center shadow-lg w-[calc(66vw)] h-[calc(25vw)] font-bold font-mono"> {/* space left to right */}
+      <div className="relative bg-zinc-900 p-4 pb-20 top-[5rem] m-auto rounded-2xl mt-10 flex flex-col items-center shadow-lg min-w-[65rem] max-w-[65rem] min-h-[calc(15vw)] max-h-[calc(25vw)] font-bold font-mono">
 
         {!patientFunctionType ? (
           <PatientTypeStep onPatientFunctionTypeChanged={setPatientFunctionType} />
@@ -54,8 +54,7 @@ export function MenuPatients() {
           />
         )}
 
-
-        <footer className=" absolute bottom-10 text-neutral-400 text-lg ">
+<footer className=" fixed bottom-[1vw]  text-neutral-400 text-lg ">
           Feito por: <a className="underline underline-offset-2" href="https://github.com/ThyagoNunes">Thyago Nunes</a>
         </footer>
       </div>

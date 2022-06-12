@@ -14,7 +14,7 @@ export function PatientTypeStep({ onPatientFunctionTypeChanged }: PatientTypeSte
         <CloseButton />
       </header>
 
-      <div className="flex py-2 gap-2 w-full">
+      <div className="relative flex py-2 gap-2 w-full">
         {Object.entries(patientFunctionTypes).map(([key, value]) => {
           return (
             <button

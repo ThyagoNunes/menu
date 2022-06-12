@@ -32,6 +32,8 @@ function handleSubmitContent(event: FormEvent) {
 
         </select>
 
+
+
         <footer className="absolute top-24 w-full flex gap-2 mt-2">
           <button
             type="submit"
@@ -40,6 +42,7 @@ function handleSubmitContent(event: FormEvent) {
             Enviar
           </button>
         </footer>
+        
         
       </form>
     </>
