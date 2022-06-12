@@ -9,20 +9,23 @@ import { api } from "../../../../lib/api"
 
 export function AllBed() {  
   const [bedsVacant, setBedsVacant] = useState([])
+  api.get('/leitos/vagos')
+  .then(response => {
+    const arrayBeds = response.data
+    return arrayBeds
+  })
 
-    api.get('/leitos/vagos')
-      .then(response => {
-        /* console.log(response.data) */
-        setBedsVacant(response.data)
-      })
 
-      const convertido = Object.entries(bedsVacant).map(([key, values]) => {
+
+
+
+
+
+      const convertido = Object.entries(arrayBeds).map(([key, values]) => {
        return ([key, values])
       })
-
-
-      console.log(typeof(convertido))
       
+      {console.log(convertido)}
 
   return (
     <>
