@@ -12,14 +12,17 @@ export class CreatePatientUseCase {
 
   async execute({ name }: CreatePatientUseCaseRequest) {
     
+
     if (!name) {
       throw new Error('Name is required');
     }
+
+    name = name.toUpperCase();
     
     const patients = await this.patientsRepository.create({
       name,
     })
-
+    
     return patients 
   }
 }

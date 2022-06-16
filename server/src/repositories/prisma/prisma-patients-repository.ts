@@ -10,7 +10,10 @@ import {
 export class PrismaPatientsRepository implements PatientsRepository {
   async index() {
     const patients = await prisma.patient.findMany({
-      
+      orderBy: {
+        name: 'asc'
+      },
+
       include: {
         Bed: {
           select: {

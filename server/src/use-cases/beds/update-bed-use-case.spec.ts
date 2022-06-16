@@ -15,7 +15,7 @@ describe('Update bed', () => {
     expect(updateBedSpy).toHaveBeenCalled();
   })
 
-  it('Should be not able to Update bed withoud ID', async () => {
+  it('Should be not able to Update bed without ID', async () => {
     await expect(updateBed.update({
       id: '', 
       name: 'teste123456',

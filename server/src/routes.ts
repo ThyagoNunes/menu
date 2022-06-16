@@ -216,7 +216,7 @@ routes.get('/leitos/:id', async (request, response) => {
 
   const bed = await showBedUseCase.show({id});
 
-  return response.status(200).json({bed});
+  return response.status(200).json({data: bed});
 })
 
 routes.post('/leitos', async (request, response) => {
@@ -229,7 +229,7 @@ routes.post('/leitos', async (request, response) => {
 
   const bedCreated = await createBedUseCase.execute({name, patientId})
 
-  return response.status(200).send({data: bedCreated})
+  return response.status(200).send({bedCreated})
 })
 
 routes.put('/leitos/:id', async (request, response) => {
