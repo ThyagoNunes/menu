@@ -14,14 +14,6 @@ export function InsertPatient() {
     })
   }
 
-
-  
-
-/*   const returnBedVacant = new Promise(resolve => {
-    resolve(bedsVacant);
-  }) */
-
-
   return (
     <>
       <form

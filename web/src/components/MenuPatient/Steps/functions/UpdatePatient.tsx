@@ -1,41 +1,41 @@
 import { FormEvent, useState } from "react"
+import { api } from "../../../../lib/api"
+import { ListPatients } from "./LIstPatients"
 
 export function UpdatePatient() {
 
-  const [comment, setComment] = useState<string | null>(null)
+  const [comment, setComment] = useState<string | null>('')
+  /* const [bed, setBed] = useState<string | null>('') */
 
-  function handleSubmitContent(event: FormEvent) {
+  async function handleSubmitContent(event: FormEvent) {
     event.preventDefault()
-
-    console.log({
-      comment
+    await api.put('/pacientes/:id', {
+      name: comment,
     })
   }
 
   return (
     <>
       <form 
+      
         onSubmit={handleSubmitContent} 
         className="relative top-12 my-4 w-full text-center flex flex-row gap-5 justify-center"
       >
-        <select
-          className="relative w-96 h[112] text-sm placeholder-zinc-400 text-zinc-100 border-zinc-600 bg-transparent rounded-md focus:border-brand-500 focus:ring-brand-500 focus:ring-1 focus:outline-none resize-none"
+        
+        <select className="relative w-96 h[112] -top-16 text-sm placeholder-zinc-400 text-zinc-100 border-zinc-600 bg-transparent rounded-md focus:border-brand-500 focus:ring-brand-500 focus:ring-1 focus:outline-none resize-none"
+          onChange={event => setComment(event.target.value)}
+          >
+        <option value=""
         >
-          <option
-            className="absolute bg-black h-48"
-            value=" ">Aristeu
-          </option>
-
-          <option
-            className="absolute bg-black h-48"
-            value=" ">Rodolfo
-          </option>
+        {<ListPatients/>}
+        </option>
         </select>
+
 
         <input
           className="relative w-96 min-h[112] text-sm placeholder-zinc-400 text-zinc-100 border-zinc-600 bg-transparent rounded-md focus:border-brand-500 focus:ring-brand-500 focus:ring-1 focus:outline-none resize-none"
           type="text"
-          placeholder="Digite o nome do paciente"
+          placeholder="Digite o nome do paciente:"
           onChange={event => setComment(event.target.value)}
         />
 
