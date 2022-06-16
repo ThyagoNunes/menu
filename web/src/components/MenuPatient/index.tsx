@@ -3,6 +3,8 @@ import { useState } from "react"
 import patientImageUrl from '../../assets/grandpa.png' // sub this icon for other icon with appearance equal INSERT SOMETHING 
 import updateImageUrl from '../../assets/checklist.png' // sub this icon for other icon with appearance equal UPDATE SOMETHING
 import deleteImageUrl from '../../assets/delete.png' // sub this icon for other icon with appearance equal DELETE SOMETHING
+import listImageUrl from '../../assets/medical-record.png' // sub this icon for other icon with appearance equal DELETE SOMETHING
+
 import { PatientTypeStep } from "./Steps/PatientTypeStep"
 import { PatientContentStep } from "./Steps/PatientContentStep"
 
@@ -12,6 +14,14 @@ export const patientFunctionTypes = {
     image: {
       source: patientImageUrl,
       alt: 'Imagem de um senhor de idade',
+    },
+  },
+
+  LIST: {
+    title: 'Listar',
+    image: {
+      source: listImageUrl,
+      alt: 'Imagem de uma pasta que contém informações',
     },
   },
 
@@ -43,7 +53,7 @@ export function MenuPatients() {
 
   return (
     <>
-      <div className="relative bg-zinc-900 p-4 pb-20 top-[5rem] m-auto rounded-2xl mt-10 flex flex-col items-center shadow-lg min-w-[65rem] max-w-[65rem] min-h-[calc(25vw)] max-h-[calc(25vw)] font-bold font-mono">
+      <div className="relative bg-zinc-900 p-4 pb-20 top-[2rem] m-auto rounded-2xl mt-10 flex flex-col items-center shadow-lg min-w-[65rem] max-w-[65rem] min-h-[calc(30vw)] max-h-[calc(40vw)] font-bold font-mono">
 
         {!patientFunctionType ? (
           <PatientTypeStep onPatientFunctionTypeChanged={setPatientFunctionType} />

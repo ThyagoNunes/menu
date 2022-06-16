@@ -45,7 +45,7 @@ export function MenuBeds() {
 
   return (
     <>
-      <div className="relative bg-zinc-900 p-4 pb-20 top-[5rem] m-auto rounded-2xl mt-10 flex flex-col items-center shadow-lg min-w-[65rem] max-w-[65rem] min-h-[calc(15vw)] max-h-[calc(25vw)] font-bold font-mono"> {/* space left to right */} {/* space left to right */}
+      <div className="relative bg-zinc-900 p-4 pb-20 top-[2rem] m-auto rounded-2xl mt-10 flex flex-col items-center shadow-lg min-w-[65rem] max-w-[65rem] min-h-[calc(30vw)] max-h-[calc(40vw)] font-bold font-mono"> {/* space left to right */} {/* space left to right */}
         <header>
           <span className="text-xl leading-6">Leitos</span>
 

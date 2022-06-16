@@ -6,6 +6,7 @@ import { DeletePatient } from './functions/DeletePatient'
 
 import { ArrowLeft } from "phosphor-react"
 import { CloseButton } from "../../CloseButton"
+import { ListPatients } from "./functions/LIstPatients"
 
 interface PatientContentStepProps {
   patientFunctionType: PatientFunctionTypes
@@ -42,6 +43,8 @@ export function PatientContentStep({
         :
         patientFunctionType === 'UPDATE' ? (<UpdatePatient />)
           :
+          patientFunctionType === 'LIST' ? (<ListPatients />)
+            :
           (<DeletePatient />)
       }
     </>
