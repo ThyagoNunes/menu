@@ -107,7 +107,7 @@ Inicialmente ele funcionará com os seguintes passos:
   <br>- /leitos/ocupados
   <br>- /categorias
   <br>- /pedidos
-<br>2.1º Caso queira ver o banco ( pedir o .env via <b>LINKEDIN</b> ) 
+<br>2.1º Caso queira ver o banco ( pedir o .env via <a href="https://www.linkedin.com/in/thyagonunes/" alt="Linkedin DEVELOPER">LINKEDIN</a> ) 
 <br>rode o YARN PRISMA STUDIO ( localhost:5555 )
   <br>- Será necessário o .env na raiz do projeto
 
