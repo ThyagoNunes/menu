@@ -43,7 +43,6 @@ Inicialmente ele funcionará com os seguintes passos:
   - Todos os leitos Ocupados.<br>
   - Todos os leitos Vagos.<br>
  
-
  <br>Em cada <b>MENU</b> temos operações de:
   <br><br>
   - Criar <br>
@@ -52,6 +51,16 @@ Inicialmente ele funcionará com os seguintes passos:
   - Deletar <br>
 
 <br>COM EXCESSÃO DO <b>MENU</b> <b>LEITOS</b> esse será apenas para <b>CONSULTA</b>
+
+
+<br><br><b>IMAGENS DA APLICAÇÃO</b>
+
+<a href="https://ibb.co/jbcbmZG"><img src="https://i.ibb.co/Qp2pLjn/1home-Principal.png" alt="1home-Principal" border="0"></a>
+<a href="https://ibb.co/HF7FvqW"><img src="https://i.ibb.co/7YvYcKw/2home-Patients.png" alt="2home-Patients" border="0"></a>
+<a href="https://ibb.co/kH9sY6V"><img src="https://i.ibb.co/f1nzmGV/3home-Orders.png" alt="3home-Orders" border="0"></a>
+<a href="https://ibb.co/RB0NyS1"><img src="https://i.ibb.co/WPy0t3Q/4home-Categories.png" alt="4home-Categories" border="0"></a>
+<a href="https://ibb.co/0Q9yHv8"><img src="https://i.ibb.co/wYQh5j3/5home-Beds.png" alt="5home-Beds" border="0"></a>
+<a href="https://ibb.co/cvMVkHn"><img src="https://i.ibb.co/0X8vmSb/6ex-Update.png" alt="6ex-Update" border="0"></a>
 
 <br><b>DESACOPLEI O MÁXIMO DO PROJETO POSSÍVEL PARA EVITAR DE QUE PROBLEMAS EM UM CÓDIGO DANIFICASSE 
   OUTRA PARTE DE OUTRO CÓDIGO OU REGRA DE NEGÓCIO.</b>
@@ -62,15 +71,6 @@ Inicialmente ele funcionará com os seguintes passos:
 <a href="https://ibb.co/9cXnm5W"><img src="https://i.ibb.co/0mNqpbr/orders.png" alt="orders" border="0"></a>
 <a href="https://ibb.co/4jkp9sZ"><img src="https://i.ibb.co/HrZq1ND/patientes.png" alt="patientes" border="0"></a>
 <a href="https://ibb.co/3BDQ8Y7"><img src="https://i.ibb.co/V275hpt/tables.png" alt="tables" border="0"></a>
-
-<br><br><b>IMAGENS DA APLICAÇÃO</b>
-
-<a href="https://ibb.co/jbcbmZG"><img src="https://i.ibb.co/Qp2pLjn/1home-Principal.png" alt="1home-Principal" border="0"></a>
-<a href="https://ibb.co/HF7FvqW"><img src="https://i.ibb.co/7YvYcKw/2home-Patients.png" alt="2home-Patients" border="0"></a>
-<a href="https://ibb.co/kH9sY6V"><img src="https://i.ibb.co/f1nzmGV/3home-Orders.png" alt="3home-Orders" border="0"></a>
-<a href="https://ibb.co/RB0NyS1"><img src="https://i.ibb.co/WPy0t3Q/4home-Categories.png" alt="4home-Categories" border="0"></a>
-<a href="https://ibb.co/0Q9yHv8"><img src="https://i.ibb.co/wYQh5j3/5home-Beds.png" alt="5home-Beds" border="0"></a>
-<a href="https://ibb.co/cvMVkHn"><img src="https://i.ibb.co/0X8vmSb/6ex-Update.png" alt="6ex-Update" border="0"></a>
 
 <b>Tecnologias utilizadas:</b>
 <br>- TYPESCRIPT 
