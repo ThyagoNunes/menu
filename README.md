@@ -115,3 +115,6 @@ Inicialmente ele funcionará com os seguintes passos:
 <br>Rodar os seguintes comandos:  
 <br>YARN ( baixar os pacotes ( dependencies/devDependencies ) utilizados no projeto )
 <br>YARN DEV ( para rodar o servidor via http://localhost:3000/ )
+
+
+Eu estou finalizando a parte FRONTEND e ainda irei inserir tela de autenticação para o usuário conseguir ter acesso restrito. 
