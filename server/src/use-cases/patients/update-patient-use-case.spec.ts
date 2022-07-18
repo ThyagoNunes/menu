@@ -16,17 +16,17 @@ describe('Updated patient', () => {
     expect(updatePatientSpy).toHaveBeenCalled();
   })
 
-  it('Should not be update patient withou id', async () => {
+  it('Should not be update patient without id', async () => {
     await expect(updatePatient.update({
-      id: 'teste123456', 
-      name: '', 
+      id: '', 
+      name: 'teste123456', 
     })).rejects.toThrow();
   })
 
-  it('Should not be update patient withou name', async () => {
+  it('Should not be update patient without name', async () => {
     await expect(updatePatient.update({
-      id: '', 
-      name: 'teste123456',
+      id: 'teste123456', 
+      name: '',
     })).rejects.toThrow();
   })
 })

@@ -7,7 +7,7 @@ import {
   PatientsRepositoryUpdateData } 
   from "../patients-repository";
 
-export class PrismaPatientsRepository implements PatientsRepository {
+export class PrismaPatientsRepository implements PatientsRepository { //contract
   async index() {
     const patients = await prisma.patient.findMany({
       orderBy: {
@@ -22,7 +22,7 @@ export class PrismaPatientsRepository implements PatientsRepository {
         },
         Order: {
           select: {
-            name: true
+            name: true,
           }
         }
       },      

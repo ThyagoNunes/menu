@@ -20,10 +20,18 @@ export class PrismaBedsRepository implements BedsRepository {
 
   async occuped() {
     const beds = await prisma.bed.findMany({
+
       where: {
         Patient: {
           isNot: null
-        }}      
+        }},
+      include: {
+        Patient: {
+          select: {
+            name: true
+          }
+        },
+      },
     })
     return beds;
   };
