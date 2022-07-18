@@ -57,11 +57,12 @@ Inicialmente ele funcionará com os seguintes passos:
   OUTRA PARTE DE OUTRO CÓDIGO OU REGRA DE NEGÓCIO.</b>
 
 arquivo de teste será upado
-<img src="menu-hss/server/assets/teste/tables.png" alt="Todas as tabelas que foram feitos os teste">
-<img src="menu-hss/server/assets/teste/beds.png" alt="Todas as funcionalidades que foram feitos os teste na tabela leitos">
-<img src="menu-hss/server/assets/teste/categories.png" alt="Todas as funcionalidades que foram feitos os teste na tabela categorias">
-<img src="menu-hss/server/assets/teste/orders.png" alt="Todas as funcionalidades que foram feitos os teste na tabela pedidos">
-<img src="menu-hss/server/assets/teste/patientes.png" alt="Todas as funcionalidades que foram feitos os teste na tabela pacientes">
+
+<a href="https://ibb.co/N17JC1G"><img src="https://i.ibb.co/8zXfszQ/beds.png" alt="beds" border="0"></a>
+<a href="https://ibb.co/DQkmbdx"><img src="https://i.ibb.co/5LvC9ZN/categories.png" alt="categories" border="0"></a>
+<a href="https://ibb.co/9cXnm5W"><img src="https://i.ibb.co/0mNqpbr/orders.png" alt="orders" border="0"></a>
+<a href="https://ibb.co/4jkp9sZ"><img src="https://i.ibb.co/HrZq1ND/patientes.png" alt="patientes" border="0"></a>
+<a href="https://ibb.co/3BDQ8Y7"><img src="https://i.ibb.co/V275hpt/tables.png" alt="tables" border="0"></a>
 
 <b>Tecnologias utilizadas:</b>
 <br>- TYPESCRIPT 
