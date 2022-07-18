@@ -1,9 +1,9 @@
-#Olá!
-#Essa aplicação chamada <b>MENU</b> é um projeto pessoal.
+Olá! <br><br>
+Essa aplicação chamada <b>MENU</b> é um projeto pessoal desenvolvido apenas por mim. <br>
 
-<br>#Esse <b>MENU</b> é estilo ( cardápio digital ) feito para pacientes internados em um hospital 🏥
-<br>#Esses pacientes não serão cadastrados por um paciente. Eles poderão solicitar ITEMS de algumas CATEGORIAS. 
-<br>#SÃO ELAS 🚀🔥: 
+<br>Esse <b>MENU</b> é estilo um ( cardápio digital ) feito para que os pacientes internados de um determinado hospital solicitem <b>ITENS</b> de algumas <b>CATEGORias</b>🏥
+<br><br>Esses pacientes serão cadastrados por algum funcionário. Esse funcionário irá inserir os dados conformes passado para eles e seguindo o fluxo da aplicação. 
+<br><br>SÃO ELAS 🚀🔥: 
  
  <div>
   <ul>
@@ -57,13 +57,11 @@ Inicialmente ele funcionará com os seguintes passos:
   OUTRA PARTE DE OUTRO CÓDIGO OU REGRA DE NEGÓCIO.</b>
 
 arquivo de teste será upado
-
-<a href="https://ibb.co/N17JC1G"><img src="https://i.ibb.co/8zXfszQ/beds.png" alt="beds" border="0"></a>
-<a href="https://ibb.co/DQkmbdx"><img src="https://i.ibb.co/5LvC9ZN/categories.png" alt="categories" border="0"></a>
-<a href="https://ibb.co/9cXnm5W"><img src="https://i.ibb.co/0mNqpbr/orders.png" alt="orders" border="0"></a>
-<a href="https://ibb.co/4jkp9sZ"><img src="https://i.ibb.co/HrZq1ND/patientes.png" alt="patientes" border="0"></a>
-<a href="https://ibb.co/3BDQ8Y7"><img src="https://i.ibb.co/V275hpt/tables.png" alt="tables" border="0"></a>
-
+<img src="menu-hss/server/assets/teste/tables.png" alt="Todas as tabelas que foram feitos os teste">
+<img src="menu-hss/server/assets/teste/beds.png" alt="Todas as funcionalidades que foram feitos os teste na tabela leitos">
+<img src="menu-hss/server/assets/teste/categories.png" alt="Todas as funcionalidades que foram feitos os teste na tabela categorias">
+<img src="menu-hss/server/assets/teste/orders.png" alt="Todas as funcionalidades que foram feitos os teste na tabela pedidos">
+<img src="menu-hss/server/assets/teste/patientes.png" alt="Todas as funcionalidades que foram feitos os teste na tabela pacientes">
 
 <br><br><b>IMAGENS DA APLICAÇÃO</b>
 
@@ -73,7 +71,6 @@ arquivo de teste será upado
 <a href="https://ibb.co/RB0NyS1"><img src="https://i.ibb.co/WPy0t3Q/4home-Categories.png" alt="4home-Categories" border="0"></a>
 <a href="https://ibb.co/0Q9yHv8"><img src="https://i.ibb.co/wYQh5j3/5home-Beds.png" alt="5home-Beds" border="0"></a>
 <a href="https://ibb.co/cvMVkHn"><img src="https://i.ibb.co/0X8vmSb/6ex-Update.png" alt="6ex-Update" border="0"></a>
-
 
 <b>Tecnologias utilizadas:</b>
 <br>- TYPESCRIPT 
@@ -94,3 +91,27 @@ arquivo de teste será upado
 <br>- PHOSPHOR-ICONS
 <br>- TAILWINDCSS 
 <br>- HEADLESSUI ( ACESSIBILIDADE )
+
+
+<h2>INSTALAÇÃO: </h2>
+
+<br>1º Você deverá fazer o gitclone ou baixar diretament no diretório. 
+<br>2º Você deverá acessar a pasta <b>SERVER</b>
+  <br>Rodar os seguintes comandos:  
+  <br>YARN ( baixar os pacotes ( dependencies/devDependencies ) utilizados no projeto )
+  <br>YARN DEV ( para rodar o servidor via http://localhost:3333/ )
+  <br>ROTAS: 
+  <br>- /pacientes
+  <br>- /leitos
+  <br>- /leitos/vagos
+  <br>- /leitos/ocupados
+  <br>- /categorias
+  <br>- /pedidos
+<br>2.1º Caso queira ver o banco ( pedir o .env via <b>LINKEDIN</b> ) 
+<br>rode o YARN PRISMA STUDIO ( localhost:5555 )
+  <br>- Será necessário o .env na raiz do projeto
+
+<br>3º Você deverá acessar a pasta <b>WEB</b>
+<br>Rodar os seguintes comandos:  
+<br>YARN ( baixar os pacotes ( dependencies/devDependencies ) utilizados no projeto )
+<br>YARN DEV ( para rodar o servidor via http://localhost:3000/ )
